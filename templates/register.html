@@ -1,0 +1,99 @@
+{% extends "eggHatchLayout.html" %}
+{% block content %}
+<div class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron text-center d-inline-block" style="background: rgba(0,0,0,0.1);text-align: center;width: auto;margin-top: 35px;margin-bottom: 48px;height: auto;font-weight: normal;color: var(--cyan);">
+                      <i class="fa fa-user-circle-o" style="font-size: 60px;margin-left: 0px;color: rgb(57,113,169);"></i>
+                      <form class="form-group" method="post">
+                        {{ form.hidden_tag() }}
+                        {{ form.csrf }}
+                              <div class="form-group">
+                                {% if form.email.errors %}
+                                  <input class="shadow d-inline-block is-invalid" id="email" type="email" name="email" placeholder="Email" style="padding: 6px 12px;color: rgb(38,157,157);width: 343px;height: 42px;background: #dfe8ee;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-bottom-color: rgb(223,231,241);border-left-width: 0px;border-left-color: rgb(223,231,241);border-radius: 12px;text-shadow: 0px 0px;margin: 0px;margin-right: 0px;margin-left: 0px;margin-top: 30px;padding-right: 74px;">
+                                  {% for error in form.email.errors %}
+                                    <div class="invalid-feedback">
+                                      <span>{{ error }}</span>
+                                    </div>
+                                  {% endfor %}
+                                  {% else %}
+                                    <input class="shadow d-inline-block" id="email" type="email" name="email" placeholder="Email" style="padding: 6px 12px;color: rgb(38,157,157);width: 343px;height: 42px;background: #dfe8ee;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-bottom-color: rgb(223,231,241);border-left-width: 0px;border-left-color: rgb(223,231,241);border-radius: 12px;text-shadow: 0px 0px;margin: 0px;margin-right: 0px;margin-left: 0px;margin-top: 30px;padding-right: 74px;">
+                                {% endif %}
+                              </div>
+                              <div class="form-group d-inline-block">
+                                {% if form.username.errors %}
+                                  <input type="text" name="username" class="is-invalid" id="username" placeholder="Username" style="padding: 6px 12px;color: rgb(38,157,157);width: 343px;height: 42px;background: #dfe8ee;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-bottom-color: rgb(223,231,241);border-left-width: 0px;border-left-color: rgb(223,231,241);border-radius: 12px;text-shadow: 0px 0px;margin: 0px;margin-right: 0px;margin-left: 0px;margin-top: 0px;padding-right: 74px;">
+                                  <div class="invalid-feedback">
+                                  {% for error in form.username.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                                  </div>
+                                {% else %}
+                                  <input type="text" name="username" id="username" placeholder="Username" style="padding: 6px 12px;color: rgb(38,157,157);width: 343px;height: 42px;background: #dfe8ee;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-bottom-color: rgb(223,231,241);border-left-width: 0px;border-left-color: rgb(223,231,241);border-radius: 12px;text-shadow: 0px 0px;margin: 0px;margin-right: 0px;margin-left: 0px;margin-top: 0px;padding-right: 74px;">
+                                {% endif %}
+                              </div>
+                              <div class="form-group">
+                                {% if form.fname.errors %}
+                                  <input class="d-inline-block is-invalid" id="fname" type="text" name="fname" placeholder="First Name" style="padding: 6px 12px;color: rgb(38,157,157);width: 343px;height: 42px;background: #dfe8ee;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-bottom-color: rgb(223,231,241);border-left-width: 0px;border-left-color: rgb(223,231,241);border-radius: 12px;text-shadow: 0px 0px;margin: 0px;margin-right: 0px;margin-left: 0px;margin-top: 0px;padding-right: 74px;">
+                                  <div class="invalid-feedback">
+                                    {% for error in form.fname.errors %}
+                                      <span>{{ error }}</span>
+                                    {% endfor %}
+                                  </div>
+                                  {% else %}
+                                    <input class="d-inline-block" id="fname" type="text" name="fname" placeholder="First Name" style="padding: 6px 12px;color: rgb(38,157,157);width: 343px;height: 42px;background: #dfe8ee;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-bottom-color: rgb(223,231,241);border-left-width: 0px;border-left-color: rgb(223,231,241);border-radius: 12px;text-shadow: 0px 0px;margin: 0px;margin-right: 0px;margin-left: 0px;margin-top: 0px;padding-right: 74px;">
+                                {% endif %}
+                              </div>
+                              <div class="form-group">
+                                {% if form.lname.errors %}
+                                  <input class="d-inline-block is-invalid" type="text" id="lname" name="lname" placeholder="Last Name" style="padding: 6px 12px;color: rgb(38,157,157);width: 343px;height: 42px;background: #dfe8ee;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-bottom-color: rgb(223,231,241);border-left-width: 0px;border-left-color: rgb(223,231,241);border-radius: 12px;text-shadow: 0px 0px;margin: 0px;margin-right: 0px;margin-left: 0px;margin-top: 0px;padding-right: 74px;">
+                                  <div class="invalid-feedback">
+                                    {% for error in form.lname.errors %}
+                                      <span>{{ error }}</span>
+                                    {% endfor %}
+                                  </div>
+                                  {% else %}
+                                    <input class="d-inline-block" type="text" id="lname" name="lname" placeholder="Last Name" style="padding: 6px 12px;color: rgb(38,157,157);width: 343px;height: 42px;background: #dfe8ee;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-bottom-color: rgb(223,231,241);border-left-width: 0px;border-left-color: rgb(223,231,241);border-radius: 12px;text-shadow: 0px 0px;margin: 0px;margin-right: 0px;margin-left: 0px;margin-top: 0px;padding-right: 74px;">
+                                {% endif %}
+                              </div>
+                              <div class="form-group">
+                                {% if form.password.errors %}
+                                <input class="shadow d-inline-block is-invalid" id="password" type="password" name="password" style="width: 342px;height: 42px;color: rgb(38,157,157);border-radius: 12px;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-left-width: 0px;border-left-color: rgb(223,231,241);background: #dfe8ee;padding-bottom: 0px;padding-left: 12px;margin-left: 0px;margin-bottom: 0px;margin-top: 0px;margin-right: 0px;" placeholder="Password">
+                                <div class="invalid-feedback">
+                                  {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                  {% endfor %}
+                                </div>
+                                {% else %}
+                                  <input class="shadow d-inline-block" id="password" type="password" name="password" style="width: 342px;height: 42px;color: rgb(38,157,157);border-radius: 12px;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-left-width: 0px;border-left-color: rgb(223,231,241);background: #dfe8ee;padding-bottom: 0px;padding-left: 12px;margin-left: 0px;margin-bottom: 0px;margin-top: 0px;margin-right: 0px;" placeholder="Password">
+                                {% endif %}
+                              </div>
+                              <div class="form-group">
+                                {% if form.cpassword.errors %}
+                                  <input class="shadow d-inline-block" id="cpassword" type="password" name="cpassword" style="width: 342px;height: 42px;color: rgb(38,157,157);border-radius: 12px;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-left-width: 0px;border-left-color: rgb(223,231,241);background: #dfe8ee;padding-bottom: 0px;padding-left: 12px;margin-left: 0px;margin-bottom: 0px;margin-top: 0px;margin-right: 0px;" placeholder="Confirm Password">
+                                  <div class="invalid-feedback">
+                                    {% for error in form.cpassword.errors %}
+                                      <span>{{ error }}</span>
+                                    {% endfor %}
+                                  </div>
+                                  {% else %}
+                                    <input class="shadow d-inline-block" id="cpassword" type="password" name="cpassword" style="width: 342px;height: 42px;color: rgb(38,157,157);border-radius: 12px;border-top-width: 0px;border-top-color: rgb(223,231,241);border-right-width: 0px;border-right-color: rgb(223,231,241);border-bottom-width: 1px;border-left-width: 0px;border-left-color: rgb(223,231,241);background: #dfe8ee;padding-bottom: 0px;padding-left: 12px;margin-left: 0px;margin-bottom: 0px;margin-top: 0px;margin-right: 0px;" placeholder="Confirm Password">
+                                {% endif %}
+                              </div>
+                              <div class="form-group">
+                                <button class="btn btn-primary bg-info border-info" type="submit" style="width: 342px;border-radius: 12px;height: 42px;">Register</button>
+                              </div>
+                              <div class="form-group">
+                                <a href="#">
+                                      <p style="font-size: 16px;color: #f0f9ff;font-weight: normal;font-style: normal;font-family: 'Roboto Slab', serif;">Reset Password?</p>
+                                  </a>
+                              </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
